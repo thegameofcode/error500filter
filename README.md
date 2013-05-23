@@ -18,7 +18,20 @@ ERROR500_FILTER_TO=email@domain.com
 ERROR500_FILTER_SUBJECT=[ERROR500] Subject description
 ERROR500_FILTER_BODY=This message has been created automatically, please not respond to this message<br /><br />Request: ##REQUEST_INFO##<br /><br />ERROR: ##ERROR_INFO##
 ```
-- Add the following filter into your web.xml file
+
+- Create your own Error500Filter.java class extending from com.thegameofcode.filter.Error500Filter
+
+```JAVA
+public class Error500Filter extends com.thegameofcode.filter.Error500Filter {
+
+  	override protected sendHtmlEmail(String p_toMail, String p_fromEmail, String p_subject, String p_body){
+		// Your own code to send email
+	}
+
+}
+```
+
+- Add the following filter into your web.xml file (replacing your.package. with your class package)
 
 ```XML
 <filter>
@@ -29,18 +42,6 @@ ERROR500_FILTER_BODY=This message has been created automatically, please not res
 	<filter-name>Aplication</filter-name>
 	<url-pattern>/*</url-pattern>
 </filter-mapping>
-```
-
-- Create your own Error500Filter.java class extending from com.thegameofcode.filter.Error500Filter
-
-```JAVA
-public class Error500Filter extends com.thegameofcode.filter.Error500Filter {
-
-  override protected sendHtmlEmail(String p_toMail, String p_fromEmail, String p_subject, String p_body){
-		// Your own code to send email
-	}
-
-}
 ```
 
 
