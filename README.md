@@ -9,8 +9,8 @@ It is a very easy way to anticipate critical errors in production environments.
 
 ### Installation
 
-- Download com.thegameofcode.filter.error500filter.jar
-- Create error500filter.properties and use the following variables:
+- Download com.thegameofcode.filter.Error500filter.jar
+- Create Error500filter.properties and use the following variables:
 
 ```
 ERROR500_FILTER_FROM=email@domain.com
